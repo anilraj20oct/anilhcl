@@ -1,0 +1,63 @@
+Subject: RE: [wcdmagps-china] AR 1-7680310//SK Telecom//Major//9959 NPO//Login
+failure on WCT GUI, after scratch installation of WCT server
+
+pls try below steps on NPO_AUX:
+#cp /tmp/cacert.pem /alcatel/csa/ngsec/ldap/openldap/etc/openldap/keys/
+(cacert.pem need to be uploaded to NPO /tmp directory. it can be retrieved from
+the patch)
+# /alcatel/MS/MS_PMON/scripts/pmon.sh stop
+# /alcatel/MS/MS_PMON/scripts/startstop/start_csa
+#/alcatel/csa/ngsec/NGSEC/bin/system/installation/populateLDap.sh
+#/alcatel/csa/ngsec/ldap/openldap/libexec/stopLDap.sh
+#/alcatel/csa/ngsec/ldap/openldap/libexec/indexScript.sh
+#/alcatel/MS/MS_PMON/scripts/startstop/start_csa
+#/alcatel/MS/MS_PMON/scripts/pmon.sh start
+
+
+
+
+Subject: RE: AR 1-8036253 // Critical // WCDMA-Somalia-Somtel // 9959 NPO //
+LR14.2 // Bosnpolte cannot access cs admin user
+
+
+ 1-7669170
+/alcatel/MS/data/traces/USER_MNAGEMENT_<server_name>_axadmin.traces
+
+Please execute and provide the output for the following:
+
+cd /alcatel/csa/ngsec/NGSEC/bin/system/cli
+./runCLI.sh
+
+cmd>display user osmadmin
+
+cmd>exit
+
+ ] AR // 1-7422364// Major // 9959 NPO // BSNL
+MP //Unable to login in NPO after scratch installation.
+
+ 1-7244810
+
+
+
+MFS Report
+ 1-4918007
+Customer Ticket TS_013892
+
+Short           There is no current and historical alarm in OMC (FM) DHOSTL2 for
+Description     MFS id 725 (MFS6Orleans). That for at least one month
+
+1-3733772
+Customer Ticket no ref
+
+Short           The customer request investigation about root cause for lost of
+Description     GPRS into MFS3, now service is restored.
+
+
+1-3109457
+Short           We lost supervision from MFS_01, during the troubleshooting we
+Description     found that Station_A is not responding due to it being down and
+                also station_B is standby.
+
+Current         Problem solved --> MFS is connected & STATION_A is up
+Summary         
+
