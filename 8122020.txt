@@ -1,0 +1,86 @@
+
+axadmin@BOSOMCR:~
+-bash-4.1$ cd /alcatel/var/home/axadmin
+axadmin@BOSOMCR:~
+-bash-4.1$ ls -ltr
+total 5932
+-rw-r--r--.  1 axadmin gadmin     2757 Jan 11  2017 getSSWPortStatus.sh
+drwxrwxr-x. 13 axadmin gadmin     4096 Mar  1  2017 filters
+drwxr-xr-x.  2 axadmin gadmin     4096 Mar  1  2017 Videos
+drwxr-xr-x.  2 axadmin gadmin     4096 Mar  1  2017 Templates
+drwxr-xr-x.  2 axadmin gadmin     4096 Mar  1  2017 Public
+drwxr-xr-x.  2 axadmin gadmin     4096 Mar  1  2017 Pictures
+drwxr-xr-x.  2 axadmin gadmin     4096 Mar  1  2017 Music
+drwxr-xr-x.  2 axadmin gadmin     4096 Mar  1  2017 Downloads
+drwxr-xr-x.  2 axadmin gadmin     4096 Mar  1  2017 Documents
+drwx------.  6 axadmin gadmin     4096 Mar  1  2017 Patches
+dr-xr-xr-x.  2 axadmin gadmin     4096 Mar  1  2017 conf
+-rw-r--r--.  1 axadmin gadmin    28085 Mar  1  2017 jacorb.properties
+-rw-r--r--.  1 axadmin gadmin     1230 Jul 22  2017 GSM_MC_TRE_License.txt
+drwxr-xr-x.  2 axadmin gadmin     4096 Jul 25  2017 Updated_MC_Somtel
+drwxrwxr-x. 14 axadmin gadmin     4096 Aug  1  2017 alcatel
+-rw-------.  1 axadmin gadmin 15237120 Aug  3  2017 core.1992104
+-rw-r--r--.  1 axadmin gadmin     1357 Aug  3  2017 32333536-3030-5A43-3234-303930474248GSM.TXT
+-rw-r--r--.  1 axadmin gadmin     5841 Dec 24  2019 all_logs.txt
+-rw-r--r--.  1 axadmin gadmin     1859 Dec 24  2019 DPCK.txt
+-rw-r--r--.  1 axadmin gadmin     1859 Dec 24  2019 BSC05_20191224085500.log.old
+-rw-r--r--.  1 axadmin gadmin     1789 Jan  9  2020 BSC05_20200109110424.log.old
+drwxr-xr-x.  2 axadmin gadmin     4096 Jan  9  2020 DLS_backup
+-rw-r--r--.  1 axadmin gadmin     1789 Jan 14  2020 BSC05_20200114093050.log.old
+-rw-r--r--.  1 axadmin gadmin    25626 Jan 14  2020 post-bsc05-restart-logs
+-rw-rw-r--.  1 axadmin gadmin  1441543 Jan 14  2020 CAL-BSC05-POST-ACTIVITY.csv
+-rw-rw-r--.  1 axadmin gadmin    39247 Jan 14  2020 HAL-POST-ACTIVITY-BSC05.csv
+-rw-------.  1 axadmin gadmin        8 Jun 11 09:28 Puntland@123
+-rw-r--r--.  1 axadmin gadmin     1293 Jul 11 15:06 broadcast.log
+drwxr-xr-x. 14 axadmin gadmin     4096 Nov  9 07:28 Desktop
+axadmin@BOSOMCR:~
+-bash-4.1$ ls -latr | grep -i .bash
+axadmin@BOSOMCR:~
+-bash-4.1$ cd /
+axadmin@BOSOMCR:/
+-bash-4.1$ crontab -l
+20 3 * * * /alcatel/omc3/osm/script/createZipFiles.pl >/dev/null 2>/dev/null
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * /alcatel/omc3/osm/script/MF-ws_control.pl
+0 1 1 * * /alcatel/omc3/osm/script/network_info.pl -crontab
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * /alcatel/omc3/osm/script/MF-display_connected_users.pl -m upd > /dev/null
+0 5 * * * /usr/local/bin/sudo /alcatel/omc3/osm/script/launch_dpck
+0 6 * * * /alcatel/omc3/osm/script/MF-Update_OMC-MFS_keys.pl >/dev/null 2>/dev/null
+33 4,9,11,13,15,17,19,21,23 * * * /usr/bin/sudo /alcatel/omc3/osm/script/killdefunct.pl -d def > /dev/null 2>/dev/null
+0,3,8,13,18,23,28,33,38,43,48,53,58 * * * * /alcatel/omc3/osm/script/stabilityEventsDataCollection.pl -c TRUE > /dev/null
+50 2 10 * * /alcatel/omc3/osm/script/BSCPatchCleanup.pl
+0 23 * * *  /alcatel/omc3/bss/usm/script/bscAlarmCaching.pl
+0 4 * * * /alcatel/omc3/osm/script/MF-cleanup -t bssusmMainViews
+0 2 * * * /alcatel/omc3/osm/script/MF-cleanup -t statisticsReport -s 30
+30 23 * * * /usr/local/bin/sudo /alcatel/omc3/osm/script/MF-cleanup -t MISC -s 7
+15 3 * * * /usr/local/bin/sudo /alcatel/omc3/osm/script/MF-cleanup -t OBSAL_ALARM -s 1
+40 0,6,9,12,15,18,21 * * * /usr/local/bin/sudo /alcatel/omc3/osm/script/MF-cleanup -t PM -s 4
+25 3 * * * /usr/local/bin/sudo /alcatel/omc3/osm/script/MF-cleanup -t ACME_ZIP,OBSYNT_ZIP -s 7
+30 1 * * * /usr/local/bin/sudo /alcatel/omc3/osm/script/MF-cleanup -t HIST,BSSIM -s 30
+0,30,59 * * * * /usr/local/bin/sudo /alcatel/omc3/osm/script/MF-cleanup -t FMQ -s 0
+0 5 1 * * /alcatel/omc3/osm/script/MF-cleanup -t stabilityDataCollection
+40 3 * * * /usr/local/bin/sudo /alcatel/omc3/osm/script/MF-cleanup -t PM,OBS,IMSI,GPRS,ACME,OBSYNT,NPO_INPUT,ALERTER_INPUT,CSV,BSSPM,TREINFO -s 4
+2,7,12,17,22,27,32,37,42,47,52,57 * * * * /alcatel/omc3/mfs/im/script/run_pmtransfer >/dev/null 2>/dev/null
+0 * * * * /alcatel/omc3/mrt/script/generateMergedLog.pl
+0 22 * * * /alcatel/omc3/omc3rno/script/run_periodicExport -all -laser >> "/alcatel/var/maintenance/trace/periodicExport.trace"
+0 2 * * * /alcatel/omc3/ei/script/processFriendCellsData.pl -withAutoactivation -asPeriodic >> /alcatel/var/maintenance/trace/omcsync.trace
+1 0 * * *  /alcatel/omc3/ufm/script/RT_license_check.pl -a CRONTAB
+0 0 * * * /alcatel/omc3/olsre/script/run_olsreSession.pl
+5,20,35,50 * * * * /alcatel/omc3/olsre/script/GetBSSConf.pl
+0,15,30,45 * * * * /alcatel/omc3/olsre/script/GetBSSInfo.pl
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * /alcatel/omc3/mrtg/script/MF_Mrtg_Collector.pl
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * /alcatel/omc3/mrtg/script/MF_Mrtg_Collector_Bsc.pl
+* * * * *  /alcatel/omc3/extalm/script/check_SU_SNMP.pl
+* * * * * /alcatel/omc3/mstopo/script/move_nameservice.pl
+15 22 * * * /alcatel/omc3/ens/usm/script/eri.pl
+1 0 * * * /alcatel/omc3/ens/usm/script/RI_license_check.pl
+0 22 * * * /alcatel/omc3/bss/im/mx/12/script/autoTcDlsBackup.pl
+0 23 * * * /alcatel/omc3/migration/script/buildDataForSpare.pl
+0 1 * * * /alcatel/omc3/migration/script/collectDataForSpare.pl
+30 2 * * * /alcatel/omc3/migration/script/dailyPrepProcess.pl
+4,9,14,19,24,29,34,39,44,49,54,59 * * * * /bin/sh /alcatel/omc3/obsal/script/startOBSAL.sh
+45 22 * * * /alcatel/omc3/obsal/script/hash_cleanup.sh
+45 21 * * * /alcatel/omc3/obsal/script/friendlyNames_merge.pl
+30 4 * * * /alcatel/omc3/ei/script/update3GcellData.pl -asPeriodic
+0 3 * * * /alcatel/omc3/mfs/im/script/mfsbackupauto//MFSAutoBackup.pl
+axadmin@BOSOMCR:/
+-bash-4.1$

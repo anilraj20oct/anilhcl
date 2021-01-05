@@ -1,0 +1,32 @@
+CLM issue
+
+1-5063130
+1-4489860
+1-4194637
+
+GPRS pmxfer report
+
+1-7143631
+1-6792831
+1-6340511
+
+mfs imt
+
+IMT can opened after copy the jacorb.properties  file from the
+Summary         OK user to /alcatel/var/home/axadmin
+
+1-3990902
+
+1-6131969
+
+1-5818894
+
+ 1-6737918   
+
+1-6555525
+
+1-6123889
+
+no mfs kpi IN omcr
+
+   1-3988152
